@@ -1,0 +1,103 @@
+/*This controls styling of the modal that covers the page*/
+.modalForLogin_Signup{
+  display:none;
+  position:fixed;
+  z-index:1;
+  left:0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow:auto;
+  background-color:rgba(0, 0, 0, 0.8);
+
+}
+
+.header{
+  float: right;
+
+}
+.exitBtn{
+  color: white;
+  float: right;
+  font-size: 30px;
+  position: fixed;
+}
+
+.exitBtn:hover,.exitBtn:focus{
+  color: ;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*This controls styling of all input fields*/
+input{
+  margin-bottom: 15px;
+  padding: 10px;
+  width:100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  height:50px;
+  border:0px;
+  text-align: center;
+}
+
+/*This controls styling of the box that holds the from*/
+.form {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:480px;
+  height:370px;
+  background:#fdfdfd;
+}
+/*This controls styling of the login/signup header*/
+.form .head {
+  width:100%;
+  height:55px;
+  display:flex;
+}
+/*This controls styling of each Login/Signup tab*/
+.form .head > div {
+  width:50%;
+  height:100%;
+  text-align:center;
+  font-size:20px;
+  line-height:55px;
+  cursor:pointer;
+  background:transparent;
+}
+/*Change background if you want to change the color of the tab that is not active.*/
+.form .head.signup > div:nth-child(1),.form .head > div:nth-child(2) {
+  background:rgb(206, 204, 204);
+  transition: all .3s ease-in-out;
+}
+.form .head.signup > div:nth-child(2) {
+  background:transparent !important;
+  transition: all .3s ease-in-out;
+}
+.form .body {
+  position:absolute;
+  overflow:hidden;
+  width:100%;
+  height:100%;
+}
+.form .body > div {
+  position:absolute;
+  width:100%;
+  height:100%;
+  transition:all 300ms ease-in-out;
+}
+/*This controls the swapping*/
+.form .body > div.login {
+  left:0%;
+}
+.form .body > div.signup {
+  left:100%;
+}
+.form .body.active > div.login {
+  left:-100%;
+}
+.form .body.active > div.signup {
+  left:0%;
+}
