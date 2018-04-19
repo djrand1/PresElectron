@@ -1,7 +1,7 @@
 //Variable for the modal by Id
 var modal = document.getElementById('loginPage');
 //Variable for the button to open modal
-var modalBut = document.getElementById('loginOpen');
+var modalBut = document.getElementsByClassName('loginButton')[0];
 //Variable for the exit buttton
 var exit = document.getElementsByClassName('exitBtn')[0];
 //Listner for click to open login

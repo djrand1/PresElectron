@@ -9,7 +9,7 @@ let test4=false;
 
 var modal = document.getElementById('loginPage');
 //Variable for the button to open modal
-var modalBut = document.getElementById('loginOpen');
+var modalBut = document.getElementsByClassName('loginButton')[0];
 //Variable for the exit buttton
 var exit = document.getElementsByClassName('exitBtn')[0];
 //Listner for click to open login
@@ -18,6 +18,25 @@ modalBut.addEventListener('click',openModal);
 exit.addEventListener('click',closeModal);
 //Listner for clicking outside of modal
 window.addEventListener('click', clickOutside);
+
+//function to open modal
+function openModal(){
+  modal.style.display= 'block';
+}
+
+//function to close modal
+function closeModal(){
+  modal.style.display= 'none';
+
+}
+
+//function to close modal if user clicks outside modal
+function clickOutside(e){
+  if(e.target == modal){
+      modal.style.display="none";
+    }
+}
+
 //Function for inserting username and password into the database
 function insertUser(username,password,permissions) {
     let userInsertSql = 'INSERT INTO user_info (username,password,permissions)\n'+
@@ -45,7 +64,7 @@ function exectueSQLstmt(stmt) {
 
 }
 
-function searchEmail(email2, callback,form1,test) {
+function searchEmail(email2, callback,form,test) {
   const sqlite3 = require('sqlite3').verbose();
 
   const path = require('path');
@@ -59,11 +78,13 @@ function searchEmail(email2, callback,form1,test) {
       console.log('SQLiteTestDB Connected');
   });
 
-  db.get("SELECT * FROM user_info WHERE username = ?",[email2],function (err, rows) {
+  db.get("SELECT username FROM user_info WHERE username = ?",[email2],function (err, rows) {
             if (err || rows == undefined ){
-                callback("",form1,true);
+              test=true;
+                callback("",form,test);
             } else {
-                callback("Username Taken",form1,false);
+              test=false;
+                callback("Username Taken",form,test);
             }
          });
 
@@ -77,6 +98,7 @@ function finEmail(str,form2,test2){
     alert(str);
     //checkinfo(form2,false,1);
   }else {
+
     checkinfo(form2,true,1);
   }
 }
@@ -118,23 +140,6 @@ function loginFin(str,form6,test2){
 }
 
 
-//function to open modal
-function openModal(){
-  modal.style.display= 'block';
-}
-
-//function to close modal
-function closeModal(){
-  modal.style.display= 'none';
-
-}
-
-//function to close modal if user clicks outside modal
-function clickOutside(e){
-  if(e.target == modal){
-      modal.style.display="none";
-    }
-}
 
 //Function for checking information from the Login form.
 function checkInfoLogin(formLog,Validator,c2) {
@@ -174,7 +179,12 @@ function checkInfoLogin(formLog,Validator,c2) {
   }
   if(Validator==true){
     debugger;
+    document.getElementsByClassName('AcountPage')[0].innerHTML = email1;
+    var loginbutton = document.getElementsByClassName('loginButton')[0];
+    loginbutton.style.display='none';
     alert("Login Sucess");
+    var modal = document.getElementById('loginPage');
+    modal.style.display= 'none';
     return true;
  }
    return false;
@@ -232,6 +242,12 @@ var passValid = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
    }
    if(test1==true){
      debugger;
+     document.getElementsByClassName('AcountPage')[0].innerHTML = email;
+     var loginbutton = document.getElementsByClassName('loginButton')[0];
+     loginbutton.style.display='none';
+     alert("Wlecome New User!");
+     var modal = document.getElementById('loginPage');
+     modal.style.display= 'none';
     //calling the function to insert data into the databse.
 	   insertUser(email,password,1);
     //valid registration

@@ -2,10 +2,8 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 //Variable for the modal by Id
-
 let attemp=3;
 
-let test4=false;
 
 var modal = document.getElementById('loginPage');
 //Variable for the button to open modal
@@ -20,103 +18,67 @@ exit.addEventListener('click',closeModal);
 window.addEventListener('click', clickOutside);
 //Function for inserting username and password into the database
 function insertUser(username,password,permissions) {
-    let userInsertSql = 'INSERT INTO user_info (username,password,permissions)\n'+
-                        ' VALUES\n'+
-                        '('+ '"'+username+'"' +','+ '"'+password+'"' +','+ permissions +');'
-	exectueSQLstmt(userInsertSql);
-}
-//Execute the Sqlites statements
-function exectueSQLstmt(stmt) {
-  const sqlite3 = require('sqlite3').verbose();
-
-  const path = require('path');
-
-  let db_path = '%CD%';
-
-
-  let db = new sqlite3.Database(db_path+'POD_dbfile.db', (err) => {
-      if (err) {
-          console.error(err.message);
-      }
-      console.log('SQLiteTestDB Connected');
-  });
-    db.run(stmt);
-    db.close();
-
-}
-
-function searchEmail(email2, callback,form1,test) {
-  const sqlite3 = require('sqlite3').verbose();
-
-  const path = require('path');
-
-  let db_path = '%CD%';
-
-  let db = new sqlite3.Database(db_path+'POD_dbfile.db', (err) => {
-      if (err) {
-          console.error(err.message);
-      }
-      console.log('SQLiteTestDB Connected');
-  });
-
-  db.get("SELECT * FROM user_info WHERE username = ?",[email2],function (err, rows) {
-            if (err || rows == undefined ){
-                callback("",form1,true);
-            } else {
-                callback("Username Taken",form1,false);
-            }
-         });
-
-  db.close();
-
-}
-
-function finEmail(str,form2,test2){
   debugger;
-  if(str!=""){
-    alert(str);
-    //checkinfo(form2,false,1);
-  }else {
-    checkinfo(form2,true,1);
-  }
+  var PouchDB = require('pouchdb-node');
+
+   db = new PouchDB('POD_db_test');
+
+   var currentUserCount = 0;
+
+   db.get('db_doccounts').then(function (doc) {
+
+       currentUserCount = doc.users_count + 1;
+       doc.users_count = currentUserCount;
+
+       return db.put(doc);
+   }).catch(function (err) {
+       console.log(err);
+   })
+
+   var newUserDoc = {
+       '_id': 'users_' + currentUserCount,
+       'user_name': username,
+       'password': password,
+       'permissions': permissions
+       //TODO: add, name, address, etc.
+   };
+
+   db.put(newUserDoc).then(function (response) {
+       console.log(response);
+   }).catch(function (err) {
+       console.log(err);
+   });
+
+   return 0;
+
 }
 
-function loginEmailFind(email3,pass,callback,form3,test8){
-  const sqlite3 = require('sqlite3').verbose();
+function searchEmail(email,form1) {
+  var PouchDB = require('pouchdb-node');
 
-  const path = require('path');
-
-  let db_path = '%CD%';
-
-  let db = new sqlite3.Database(db_path+'POD_dbfile.db', (err) => {
-      if (err) {
-          console.error(err.message);
-      }
-      console.log('SQLiteTestDB Connected');
-  });
-
-  db.get("SELECT * FROM user_info WHERE username = ? AND password = ? ",[email3,pass],function (err, rows) {
-            if (err || rows == undefined ){
-                callback("Wrong Username or password",form3,false);
-            } else {
-                callback("",form3,true);
-            }
-         });
-
-  db.close();
-
+   db = new PouchDB('POD_db_test');
+   
+   debugger;
+   return db.allDocs({
+       include_docs: true,
+       startkey: 'users_',
+       endkey: 'users_\ufff0'
+   }).then(function (result) {
+       //console.log(result);
+       var i;
+       for(i = 0; i < result.rows.length; i++) {
+           console.log(result.rows[i].doc.user_name);
+           if(result.rows[i].doc.user_name == email) {
+               console.log('found');
+               return 1;
+           }
+           //return 0;
+       }
+   }).catch(function (err) {
+       console.log(err);
+   });
+   //console.log(foundEmail);
 }
-
-function loginFin(str,form6,test2){
- debugger;
-  if(str!=""){
-    alert(str);
-    //checkInfoLogin(form6,false,1);
-  }else {
-    checkInfoLogin(form6,true,1);
-  }
-}
-
 
 //function to open modal
 function openModal(){
@@ -185,6 +147,7 @@ function checkInfoLogin(formLog,Validator,c2) {
 
 //function for checking information from the Register form.
 function checkinfo(form,test1,c1){
+
 var count = c1;
 var errors=[];
 var email = form.signupEmail.value;
@@ -227,17 +190,19 @@ var passValid = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
 
     if(test1==false){
       if(count==0){
-     searchEmail(email,finEmail,form,test1);
+        var test0 = searchEmail(email,form);
+        if(test0!=null){
+
+        }
      }
    }
    if(test1==true){
-     debugger;
     //calling the function to insert data into the databse.
 	   insertUser(email,password,1);
     //valid registration
     return true;
   }
-
+    debugger;
     return false;
  }
 //Function that swaps the login and Register tab.
