@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+
+<script src="renderer.js"></script>
+<link rel="stylesheet" href="./css/check1.css">
+  </head>
+  <body>
+    <div class="flex_center">
+      <div id="popup" class="slide-in">
+        <h1>Checkout</h1>
+
+        <form id="credit_form">
+
+          <h2>Enter your payment info:</h2>
+
+          <div class="card">
+            <div class="back_card">
+              <input class="credit_card_security" type="text" placeholder="000" maxlength="3">
+            </div>
+            <div class="front_card">
+              <input class="credit_card_name" placeholder="Your Name Here">
+              <div class="row_flex">
+                <input class="credit_card_input" type="text" placeholder="0000" maxlength="4">
+                <input class="credit_card_input" type="text" placeholder="0000" maxlength="4">
+                <input class="credit_card_input" type="text" placeholder="0000" maxlength="4">
+                <input class="credit_card_input" type="text" placeholder="0000" maxlength="4">
+              </div>
+              <div class="date">
+                EXPIRES: <input class="credit_card_date" type="text" placeholder="00" maxlength="2">/<input class="credit_card_date" type="text" placeholder="2018" maxlength="4">
+              </div>
+            </div>
+          </div>
+
+          <h2>Enter your address:</h2>
+
+          <div class="address">
+            <label class="address_label" for="address_one">Street Address</label>
+            <input type="text" class="input_address" id="address_one" placeholder="Street Address">
+          </div>
+
+          <div class="address">
+            <label class="address_label" for="address_one">City, State</label>
+            <input type="text" class="input_address" id="address_one" placeholder="City, State">
+          </div>
+
+          <div class="address">
+            <label class="address_label" for="address_one">ZIP-Code</label>
+            <input type="text" class="input_address" id="address_one" placeholder="ZIP-Code">
+          </div>
+          <input type="button" value="submit" class="submit_form" onclick="thanks1()"><a href="index.html"></a>
+
+
+
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+  window.$= window.jQuery = require("jquery");
+  </script>
+  <script>
+
+
+  </script>
+</html>

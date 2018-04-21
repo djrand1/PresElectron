@@ -2,7 +2,6 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 //Variable for the modal by Id
-
 let attemp=3;
 
 let test4=false;
@@ -267,3 +266,61 @@ var passValid = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
     referTo.parentNode.classList.add('signup');
   }
  }
+
+
+ function updatePass(newPass,oldpass){
+   const sqlite3 = require('sqlite3').verbose();
+   debugger;
+   const path = require('path');
+
+   let email6 = document.querySelector(".AcountPage").innerHTML;
+   let newP = newPass;
+   let oldP = oldpass;
+   let db_path = '%CD%';
+
+
+   let db = new sqlite3.Database(db_path+'POD_dbfile.db', (err) => {
+       if (err) {
+           console.error(err.message);
+       }
+       console.log('SQLiteTestDB Connected');
+   });
+
+
+   let data = ['newP,email6'];
+   let sql = `UPDATE user_info
+               SET password = ?
+               WHERE username = ?`;
+
+               db.run(sql, data, function(err) {
+                 if (err) {
+                   return console.error(err.message);
+                 }
+                 console.log(`Row(s) updated: ${this.changes}`);
+
+               });
+
+               // close the database connection
+               db.close();
+ }
+ function thanks1(){
+   alert("Thank you. Your order has been received");
+   window.location.href='index.html';
+ };
+
+ function myFunction1() {
+   var input, filter, ul, li, a, i;
+   input = document.getElementById("myInput");
+   filter = input.value.toUpperCase();
+   ul = document.getElementById("myUL");
+   li = ul.getElementsByTagName("li");
+   for (i = 0; i < li.length; i++) {
+       a = li[i].getElementsByTagName("a")[0];
+       if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+           li[i].style.display = "block";
+       } else {
+           li[i].style.display = "none";
+
+       }
+   }
+}

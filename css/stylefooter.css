@@ -1,0 +1,129 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family:"Nunito Sans" , sans-serif;
+    background-color: #F5F5F5;
+}
+
+nav {
+  background-color: #DFDCE3;
+  height: 90px;
+  width: 100%;
+  z-index: 2;
+  position:fixed;
+}
+
+nav ul {
+    float: right;
+    margin-right: 30px;
+    margin-top: 15px;
+
+}
+
+nav ul li {
+    float: right;
+    list-style: none;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+}
+
+nav ul li a {
+    display: block;
+    color: #CF6766;
+    position: relative;
+
+    left: 20%;
+    bottom: 0%;
+    float: right;
+    list-style: none;
+    padding: 15px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-left: 1px solid #CF6766;
+}
+
+nav a:hover {
+  background-color: #CF6766;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+
+}
+
+.logo{
+    float: left;
+    margin-top: -15px;
+    z-index: 15;
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.aboutus{
+    float: left;
+    margin-left: 10%;
+    margin-top: .3%;
+
+}
+
+.aboutus h1{
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+
+.aboutus span{
+    color: #CF6766;
+}
+
+.container{
+  max-width:1070px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:1em;
+  position: absolute;
+  top:20%;
+  left: 12%
+}
+
+
+.wrapper{
+  box-shadow: 0 0 20px 0;
+}
+
+.wrapper > *{
+  padding: 1em;
+}
+
+.company-info{
+  background: #DFDCE3;
+}
+
+.company-info h2, .company-info ul{
+  text-align: left;
+  margin:0 0 1rem 0;
+}
+
+.company-info h2, .company-info span{
+    color: #CF6766;
+    font-weight: bold;
+}
+
+
+.contact{
+  background:#f9feff;
+}
+
+/* LARGE SCREENS */
+@media(min-width:450px){
+
+  .wrapper > *{
+    padding:2em;
+  }
+
+  .company-info h3, .company-info ul{
+    text-align: left;
+  }
+}

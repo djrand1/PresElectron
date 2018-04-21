@@ -1,0 +1,160 @@
+.navbar {
+  overflow: hidden;
+  background-color: #F5F5F5;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: inline-block;
+  color: #818181;
+  text-align: center;
+  padding: 20px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.navbar a:hover {
+  background: #94618E;
+  color: white;
+}
+<div class="navbar">
+                <ul>
+                  <li><a href="#Home">Home</a></li>
+                  <li><a href="#My Account">My Account</a>
+                    <ul>
+                      <li><a href="#Shoppiing Cart">Shopping Cart</a></li>
+                      <li><a href="#Checkout">Checkout</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#Login">Login</a></li>
+                </ul>
+            </div>
+                  
+
+            </div>
+          </section>
+
+<section>
+            <div class="navbar">
+                  <a href="#Home">Home</a>
+                  <a href="#My Account">My Account</a>
+                  <a href="#Shoppiing Cart">Shopping Cart</a>
+                  <a href="#Checkout">Checkout</a>
+                  <div class="dropdown">
+                    <button class="buttondrop"onclick="myFunction()">Dropdown
+                    </button>
+                    <div class="dropdownlink" id="myDropdown">
+                      <a href="#">My Account</a>
+                      <a href="#">Shopping Cart</a>
+                      <a href="#">Checkout</a>
+                    </div>
+                  </div>
+                  <a href="#Login">Login</a>
+
+            </div>
+          </section>
+---
+<section>
+        <nav>
+              <a href="index.html"><img src="Images/logo.png" class="logo"/></a>
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="#">Dropdown Info</a>
+                    <ul>
+                      <li><a href="#My Account">My Account</a></li>
+                      <li><a href="#Shopping Cart">Shopping Cart</a></li>
+                      <li><a href="#Checkout">Checkout</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#Login">Login/Logout</a></li>
+                </ul>
+            <form class="search">
+              <input type="text" placeholder="Type to Search">
+              <button> <a href="#Search">Search</a></button>
+            </form>
+            </nav>
+          </section>      
+
+css
+
+nav {
+  background-color: #F5F5F5;
+  height: 90px;
+  width: 100%;
+  z-index: 2;
+  position:fixed;
+}
+
+nav ul {
+    float: right;
+    margin-right: 70px;
+
+}
+
+nav ul li {
+    float: left;
+    list-style: none;
+    position: relative;
+}
+
+nav ul li a {
+    display: block;
+    color: #818181;
+    position: relative;
+    bottom: 0%;
+    float: left;
+    list-style: none;
+    padding: 25px 15px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+nav ul li ul {
+    display: none;
+    position: absolute;
+    background-color: #F5F5F5;
+    padding: 10px;
+    border-radius: 0px 0px 4px 4px;
+}
+
+ nav ul li:hover ul  {
+    display: block;
+
+}
+
+nav ul li ul li {
+    width: 300px;
+    border-radius: 4px;
+}
+
+nav ul li ul li a {
+    padding: 12px 14px;
+}
+nav a:hover {
+  background-color: #94618E;
+  color: white;
+
+}
+
+
+
+---
+
+<div class="product">
+        <div class="container">
+          <div class= "category-title">TECHNOLOGY</div>
+          <div class="product1">
+            <div class="product-img">
+              <img src="Images/product1.jpg">
+            </div>
+            <div class="product-text">
+              <h5>Product Description Product Description Product Description<i><strike>$192.45</strike></i></h5>
+            </div>
+            <div class="product-price">
+              <div class="price">$50.99</div>
+              <div class="button"> Add to Cart</div>
+            </div>
+          </div>

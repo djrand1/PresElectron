@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
+
   <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<script src="Js/jquery-3.2.1.min.js"></script>-->
-  
+
   <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
-   <link rel="stylesheet" type="text/css" href="css/styletemp.css">
+  <script src="renderer.js"></script>
+
+  <script defer src="js/fontawesome-all.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/stylemain.css">
+
     <title>Value Goods</title>
 </head>
 <body>
@@ -33,35 +37,70 @@
               <a href="index.html"><img src="Images/logo-2.png" class="logo"/></a>
                 <ul>
                   <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                  <li><a href="account.html"><i class="fa fa-address-card"></i> My Account</a></li>
                   <li><a href="shopping-cart.html"><i class="fa fa-shopping-cart"></i> Shopping Cart</a></li>
                   <li><a href="checkout.html"><i class="fa fa-credit-card"></i> Checkout</a></li>
+                  <li><a href="account.html"><i class="fa fa-address-card"></i> My Account</a></li>
                   <li><a href="#Login"><i class="fa fa-user-circle"></i> Logout</a></li>
                 </ul>
             <form class="search">
-              <input type="text" placeholder="Type to Search">
-              <button> <a href="#Search">Search</a></button>
-            </form>
+              <input type="text" placeholder="Search..." id="myInput" onkeyup="myFunction1()">
+              <a href="#Search"><button> <i class="fas fa-search"></i></button></a>  </form>
             </nav>
-          </section>       
+          </section>
 
           <section>
 
-            <div class= "sidebar">
-                <a class="category"><i class="fa fa-list-alt"></i> Categories</a>
-                <a href="technology.html">Technology</a>
-                <a href="women.html">Women</a>
-                <a href="men.html">Men</a>
-                <a href="kids.html">Kids</a>
-                <a href="home-goods.html">Home Goods</a>
-                <a href="other.html">Other</a>
+             <div class= "sidebar">
+                  <div class="category">
+                    <a><i class="fa fa-list-alt"></i> Categories</a>
+                  </div>
+                <div class="submenu">
+                  <a href="technology.html">Technology</a>
+                  <a href="women.html">Women</a>
+                  <a href="men.html">Men</a>
+                  <a href="kids.html">Kids</a>
+                  <a href="home-goods.html">Home Goods</a>
+                  <a href="other.html">Other</a>
+                </div>
             </div>
-        </div>
       </section>
+
+      <section>
+        <div class="dropdown">
+<button onclick="myFunction()" class="dropbtn"><i class="fas fa-filter"></i> Filter</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#home">Price: Low to High</a>
+    <a href="#about">Price: High to Low</a>
+  </div>
+</div>
+
+<script>
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+      </section>
+
   <section>
+    <ul id="myUL" style="list-style-type:none">
       <div class="product">
         <div class="container">
           <div class= "category-title">TECHNOLOGY</div>
+<li><a>
           <div class="product1">
             <div class="product-img">
               <img src="Images/tech1.jpg">
@@ -71,11 +110,12 @@
               <i><strike>$1110.15</strike></i>
             </div>
             <div class="product-text">
-              <h5>Ultra Slim 12.5 Inch Windows 10 IPS FHD 1920 x 1080 4GB RAM 128GB SSD</h5>
+              <h5>Ultra Slim 12.5 Inch Windows 10 IPS FHD 1920 x 1080 4GB RAM 128GB</h5>
               <div class="button"> Add to Cart</div>
             </div>
           </div>
-
+        </li></a>
+        <li><a>
           <div class="product1 product2">
             <div class="product-img">
               <img src="Images/tech2.jpg">
@@ -90,7 +130,8 @@
             </div>
           </div>
 
-          
+        </li></a>
+        <li><a>
           <div class="product1 product3">
             <div class="product-img">
               <img src="Images/tech3.jpg">
@@ -104,123 +145,103 @@
               <div class="button"> Add to Cart</div>
             </div>
           </div>
-
+        </li></a>
+        <li><a>
           <div class="product1 product4">
             <div class="product-img">
               <img src="Images/tech4.jpg">
             </div>
               <div class="product-price">
-              <div class="price">$50.99</div>
-              <i><strike>$192.45</strike></i>
+              <div class="price">$129.99</div>
+              <i><strike>$145.00</strike></i>
             </div>
             <div class="product-text">
-              <h5>Product Description dfjd dfhdf d fdfh djkf djfh dhf dfdjkfh djdf dhf</h5>
+              <h5>Beats by Dr. Dre EP headphones battery-freee fine-tuned acoustics</h5>
               <div class="button"> Add to Cart</div>
             </div>
           </div>
-
+        </li></a>
+        <li><a>
           <div class="product1 product5">
             <div class="product-img">
               <img src="Images/tech5.jpg">
             </div>
               <div class="product-price">
-              <div class="price">$50.99</div>
-              <i><strike>$192.45</strike></i>
+              <div class="price">$1,150</div>
+              <i><strike>$1,300.45</strike></i>
             </div>
             <div class="product-text">
-              <h5>Product Description dfjd dfhdf d fdfh djkf djfh dhf dfdjkfh djdf dhf</h5>
+              <h5>Apple iPhone X 256GB - Black and Gray Available in Sprint AT&amp;T</h5>
               <div class="button"> Add to Cart</div>
             </div>
           </div>
-
+        </li></a>
+        <li><a>
           <div class="product1 product6">
             <div class="product-img">
               <img src="Images/tech6.jpg">
             </div>
               <div class="product-price">
-              <div class="price">$50.99</div>
-              <i><strike>$192.45</strike></i>
+              <div class="price">$650</div>
+              <i><strike>$699.99</strike></i>
             </div>
             <div class="product-text">
-              <h5>Product Description dfjd dfhdf d fdfh djkf djfh dhf dfdjkfh djdf dhf</h5>
+              <h5>Canon EOS Rebel SL2 DSLR Camera with EF-S 18-55mm IS STM Lens White</h5>
               <div class="button"> Add to Cart</div>
             </div>
           </div>
-
+        </li></a>
+        <li><a>
           <div class="product1 product7">
             <div class="product-img">
               <img src="Images/tech7.jpg">
             </div>
               <div class="product-price">
-              <div class="price">$50.99</div>
-              <i><strike>$192.45</strike></i>
+              <div class="price">$84.99</div>
+              <i><strike>$99.45</strike></i>
             </div>
             <div class="product-text">
-              <h5>Product Description dfjd dfhdf d fdfh djkf djfh dhf dfdjkfh djdf dhf</h5>
+              <h5>Amazon - Echo (2nd generation) - Heather Gray Fabric - Echo Shell</h5>
               <div class="button"> Add to Cart</div>
             </div>
           </div>
-
+        </li></a>
+        <li><a>
           <div class="product1 product8">
             <div class="product-img">
               <img src="Images/tech8.jpg">
             </div>
               <div class="product-price">
-              <div class="price">$50.99</div>
-              <i><strike>$192.45</strike></i>
+              <div class="price">$241.99</div>
+              <i><strike>$249.00</strike></i>
             </div>
             <div class="product-text">
-              <h5>Product Description dfjd dfhdf d fdfh djkf djfh dhf dfdjkfh djdf dhf</h5>
+              <h5>Apple - Apple Watch Series 1 38mm Silver Aluminum Case White Sport Band</h5>
               <div class="button"> Add to Cart</div>
             </div>
           </div>
 
-          <div class="product1 product9">
-            <div class="product-img">
-              <img src="Images/tech9.jpg">
-            </div>
-              <div class="product-price">
-              <div class="price">$50.99</div>
-              <i><strike>$192.45</strike></i>
-            </div>
-            <div class="product-text">
-              <h5>Product Description dfjd dfhdf d fdfh djkf djfh dhf dfdjkfh djdf dhf</h5>
-              <div class="button"> Add to Cart</div>
-            </div>
-          </div>
-
-          <div class="product1 product10">
-            <div class="product-img">
-              <img src="Images/tech10.jpg">
-            </div>
-              <div class="product-price">
-              <div class="price">$50.99</div>
-              <i><strike>$192.45</strike></i>
-            </div>
-            <div class="product-text">
-              <h5>Product Description dfjd dfhdf d fdfh djkf djfh dhf dfdjkfh djdf dhf</h5>
-              <div class="button"> Add to Cart</div>
-            </div>
-          </div>
-
-        </div>  
+        </div>
       </div>
-
+    </li></a>
+</ul>
   </section>
     <footer>
              <div class="afooter">
-                <a href="Help Center">Help Center</a>
-                <a href="About Us">About Us</a>
-                <a href="Contact Us">Contact Us</a>
+                <a href="help-center.html">Help Center</a>
+                <a href="about-us.html">About Us</a>
+                <a href="contact-us.html">Contact Us</a>
                 <a href="Calender">Calender </a>
         </div>
         <hr />
-            <div class="copyright"> 
-                <span>DJRAN.Inc, Copyright &copy; 2018</span>
+            <div class="copyright">
+                <p>DJRAN.Inc, Copyright &copy; 2018</p>
             </div>
-           
+
     </footer>
   </main>
 </article>
      </body>
+     <script>require('./components/ModalLogin.js')</script>
+     <script>require('./components/calendar.js')</script>
 </html>

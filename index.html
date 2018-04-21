@@ -7,19 +7,28 @@
     <!--<script src="Js/jquery-3.2.1.min.js"></script>-->
 
   <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/Login_Signup.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+  <link rel="stylesheet" href="./css/calendar-styles.css"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
-<script src="renderer.js"></script>
-   <link rel="stylesheet" type="text/css" href="css/styletemp.css">
-   <link rel="stylesheet" href="./css/Login_Signup.css">
+  <script src="renderer.js"></script>
+  <script>require('./components/update_Pass.js')</script>
+  <script>if (window.module) module = window.module;</script>
+
+
+  <script defer src="js/fontawesome-all.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/stylemain.css">
 
     <title>Value Goods</title>
 </head>
 <body>
+  <article>
+    <main>
 
-  <div id="loginPage" class="modalForLogin_Signup">
+      <div id="loginPage" class="modalForLogin_Signup">
     <div class="form">
       <div class="header"><span class="exitBtn">&times;</span></div>
       <div class="head" class="signup">
@@ -55,10 +64,6 @@
     </div>
   </div>
 
-
-  <article>
-    <main>
-
             <!--<img src="Images/Website_Logo.png" class="logo" />-->
             <!--<div class="dropdown">
               <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
@@ -69,35 +74,81 @@
         <li><a href="#">JavaScript</a></li>
   </ul>
 </div>-->
-      <section>
-        <nav>
-              <a href="index.html"><img src="Images/logo-2.png" class="logo"/></a>
-                <ul>
-                  <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                  <li><a class="AcountPage" href="account.html"><i class="fa fa-address-card"></i> My Account</a></li>
-                  <li><a href="shopping-cart.html"><i class="fa fa-shopping-cart"></i> Shopping Cart</a></li>
-                  <li><a href="checkout.html"><i class="fa fa-credit-card"></i> Checkout</a></li>
-                  <li><a  class="loginButton"><i class="fa fa-user-circle"></i> Logout</a></li>
-                </ul>
-            <form class="search">
-              <input type="text" placeholder="Type to Search">
-              <button> <a href="#Search">Search</a></button>
-            </form>
-            </nav>
-          </section>
+<section>
+  <nav>
+        <a href="index.html"><img src="Images/logo-2.png" class="logo"/></a>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="shopping-cart.html"><i class="fa fa-shopping-cart"></i> Shopping Cart</a></li>
+            <li><a href="checkout.html"><i class="fa fa-credit-card"></i> Checkout</a></li>
+            <li><span class="AcountPage" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-address-card"></i> My Account</span></li>
+<!--.....................................................................................-->
+
+<div id="id01" class="modal">
+
+<form class="modal-content animate" action="/action_page.php">
+<div class="imgcontainer">
+<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+<h3 class="account"> My Account </h3>
+</div>
+
+<div class="accountcontainer">
+<label for="uname"><b>Full Name</b></label>
+<input type="text" placeholder="Enter Name" name="uname" required>
+<button type="submit">Save</button>
+
+<label for="old-psw"><b>Old Password</b></label>
+<input id="op" type="password" placeholder="Update Password" name="old_psw" required>
+
+<label for="new-psw"><b>New Password</b></label>
+<input id="np" type="password" placeholder="Update Password" name="psw" required>
+
+<button type="submit" onclick="updatePass(document.getElementById('np').value,document.getElementById('op').value)">Save</button>
+
+
+</div>
+
+
+</form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+if (event.target == modal) {
+  modal.style.display = "none";
+}
+}
+</script>
+<!--.................................................................................................-->
+
+            <li><a class="loginButton" href="#Login"><i class="fa fa-user-circle"></i> Logout</a></li>
+          </ul>
+      <form class="search">
+        <input type="text" placeholder="Search...">
+        <a href="#Search"><button> <i class="fas fa-search"></i></button></a>
+      </form>
+      </nav>
+    </section>
 
           <section>
 
-            <div class= "sidebar">
-                <a class="category"><i class="fa fa-list-alt"></i> Categories</a>
-                <a href="technology.html">Technology</a>
-                <a href="women.html">Women</a>
-                <a href="men.html">Men</a>
-                <a href="kids.html">Kids</a>
-                <a href="home-goods.html">Home Goods</a>
-                <a href="other.html">Other</a>
+             <div class= "sidebar">
+                  <div class="category">
+                    <a><i class="fa fa-list-alt"></i> Categories</a>
+                  </div>
+                <div class="submenu">
+                  <a href="technology.html">Technology</a>
+                  <a href="women.html">Women</a>
+                  <a href="men.html">Men</a>
+                  <a href="kids.html">Kids</a>
+                  <a href="home-goods.html">Home Goods</a>
+                  <a href="other.html">Other</a>
+                </div>
             </div>
-        </div>
       </section>
   <section>
     <div class="container">
@@ -118,50 +169,43 @@
       <div class="item active">
         <img src="Images/slider1.jpg" alt="Shop">
         <div class="carousel-caption">
-        <h3>Shop Now</h3>
         </div>
       </div>
 
       <div class="item">
         <img src="Images/slider2.jpeg" alt="Shop Technology">
         <div class="carousel-caption">
-        <h3>Technology</h3>
-        <p>Buy Now</p>
+        <a href="technology.html"><button type="button">TECHNOLOGY</button></a>
         </div>
       </div>
       <div class="item">
         <img src="Images/slider3.jpeg" alt="Shop Women">
         <div class="carousel-caption">
-        <h3>Women</h3>
-        <p>Buy Now</p>
+        <a href="women.html"><button type="button">WOMEN</button></a>
         </div>
       </div>
       <div class="item">
         <img src="Images/slider4.jpeg" alt="Shop Men">
         <div class="carousel-caption">
-        <h3>Men</h3>
-        <p>Buy Now</p>
+        <a href="men.html"><button type="button">MEN</button></a>
         </div>
       </div>
       <div class="item">
         <img src="Images/slider5.jpeg" alt="Shop Kids">
         <div class="carousel-caption">
-        <h3>Kids</h3>
-        <p>Buy Now</p>
+        <a href="kids.html"><button type="button">KIDS</button></a>
         </div>
       </div>
       <div class="item">
         <img src="Images/slider6.jpeg" alt="Shop Home Goods">
         <div class="carousel-caption">
-        <h3>Home Goods</h3>
-        <p>Buy Now</p>
+        <a href="home-goods.html"><button type="button">HOME GOODS</button></a>
         </div>
       </div>
       <div class="item">
         <img src="Images/slider7.jpeg" alt="Shop Other">
         <div class="carousel-caption">
-        <h3>Other</h3>
-        <p>Buy Now</p>
+        <a href="other.html"><button type="button">OTHER</button></a>
         </div>
       </div>
     </div>
@@ -179,13 +223,23 @@
 </div>
       </section>
 
+      <div id="popo">
+    <div id="calendar-buttonicon" height="480px">
+
+
+    <div id="caleandar" class="hide">
+
+
+  </div>
+</div>
+</div>
 
     <footer>
              <div class="afooter">
-                <a href="Help Center">Help Center</a>
-                <a href="About Us">About Us</a>
-                <a href="Contact Us">Contact Us</a>
-                <a href="Calender">Calender </a>
+                <a href="help-center.html">Help Center</a>
+                <a href="about-us.html">About Us</a>
+                <a href="contact-us.html">Contact Us</a>
+                <a id="ui" href="Calender">Calender </a>
         </div>
         <hr />
             <div class="copyright">
@@ -195,8 +249,8 @@
     </footer>
   </main>
 </article>
-<script>
-  require('./components/ModalLogin.js')
-</script>
+     </body>
+     <script>require('./components/ModalLogin.js')</script>
+     <script>require('./components/calendar.js')</script>
 
 </html>

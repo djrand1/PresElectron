@@ -11,7 +11,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="renderer.js"></script>
+<script src="renderer.js"></script>
 
   <script defer src="js/fontawesome-all.js"></script>
   <link rel="stylesheet" type="text/css" href="css/stylemain.css">
@@ -32,21 +32,65 @@
         <li><a href="#">JavaScript</a></li>
   </ul>
 </div>-->
-      <section>
-        <nav>
-              <a href="index.html"><img src="Images/logo-2.png" class="logo"/></a>
-                <ul>
-                  <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                  <li><a href="shopping-cart.html"><i class="fa fa-shopping-cart"></i> Shopping Cart</a></li>
-                  <li><a href="checkout.html"><i class="fa fa-credit-card"></i> Checkout</a></li>
-                  <li><a href="account.html"><i class="fa fa-address-card"></i> My Account</a></li>
-                  <li><a href="#Login"><i class="fa fa-user-circle"></i> Logout</a></li>
-                </ul>
-            <form class="search">
-              <input type="text" placeholder="Search..." id="myInput" onkeyup="myFunction1()">
-              <a href="#Search"><button> <i class="fas fa-search"></i></button></a>  </form>
-            </nav>
-          </section>
+<section>
+  <nav>
+        <a href="index.html"><img src="Images/logo-2.png" class="logo"/></a>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="shopping-cart.html"><i class="fa fa-shopping-cart"></i> Shopping Cart</a></li>
+            <li><a href="checkout.html"><i class="fa fa-credit-card"></i> Checkout</a></li>
+            <li><span class="AcountPage" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-address-card"></i> My Account</span></li>
+<!--.....................................................................................-->
+
+<div id="id01" class="modal">
+
+<form class="modal-content animate" action="/action_page.php">
+<div class="imgcontainer">
+<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+<h3 class="account"> My Account </h3>
+</div>
+
+<div class="accountcontainer">
+<label for="uname"><b>Full Name</b></label>
+<input type="text" placeholder="Enter Name" name="uname" required>
+<button type="submit">Save</button>
+
+<label for="old-psw"><b>Old Password</b></label>
+<input id="op" type="password" placeholder="Update Password" name="old_psw" required>
+
+<label for="new-psw"><b>New Password</b></label>
+<input id="np" type="password" placeholder="Update Password" name="psw" required>
+
+<button type="submit" onclick="updatePass(document.getElementById('np').value,document.getElementById('op').value)">Save</button>
+
+
+</div>
+
+
+</form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+if (event.target == modal) {
+  modal.style.display = "none";
+}
+}
+</script>
+<!--.................................................................................................-->
+
+            <li><a class="loginButton" href="#Login"><i class="fa fa-user-circle"></i> Logout</a></li>
+          </ul>
+      <form class="search">
+        <input type="text" placeholder="Search..." id="myInput" onkeyup="myFunction1()">
+        <a href="#Search"><button> <i class="fas fa-search"></i></button></a>
+      </form>
+      </nav>
+    </section>
 
           <section>
 
@@ -65,7 +109,24 @@
             </div>
       </section>
 
-<section>
+          <section>
+
+             <div class= "sidebar">
+                  <div class="category">
+                    <a><i class="fa fa-list-alt"></i> Categories</a>
+                  </div>
+                <div class="submenu">
+                  <a href="technology.html">Technology</a>
+                  <a href="women.html">Women</a>
+                  <a href="men.html">Men</a>
+                  <a href="kids.html">Kids</a>
+                  <a href="home-goods.html">Home Goods</a>
+                  <a href="other.html">Other</a>
+                </div>
+            </div>
+      </section>
+
+  <section>
         <div class="dropdown">
 <button onclick="myFunction()" class="dropbtn"><i class="fas fa-filter"></i> Filter</button>
   <div id="myDropdown" class="dropdown-content">
@@ -102,33 +163,33 @@ window.onclick = function(event) {
     <ul id="myUL" style="list-style-type:none">
       <div class="product">
         <div class="container">
-          <div class= "category-title">WOMEN</div>
-          <li><a>
+          <div class= "category-title">HOME GOODS</div>
+<li><a>
           <div class="product1">
             <div class="product-img">
-              <img src="Images/women1.jpg">
+              <img src="Images/home1.jpg">
             </div>
               <div class="product-price">
-              <div class="price">$30.00</div>
-              <i><strike>$35.45</strike></i>
+              <div class="price">$220.00</div>
+              <i><strike>$239.00</strike></i>
             </div>
             <div class="product-text">
-              <h5>Women Blouse Bress Shirt Short Sleeves Crewneck Dress </h5>
+              <h5>Pacific Coast Set Of 2 New England Village Table Lamps</h5>
               <div class="button"> Add to Cart</div>
             </div>
           </div>
-</li></a>
-<li><a>
+        </li></a>
+        <li><a>
           <div class="product1 product2">
             <div class="product-img">
-              <img src="Images/women2.jpg">
+              <img src="Images/home2.jpg">
             </div>
             <div class="product-price">
-              <div class="price">$150.30</div>
-              <i><strike>$377.61 </strike></i>
+              <div class="price">$239.00</div>
+              <i><strike>$309.60 </strike></i>
             </div>
             <div class="product-text">
-              <h5>2018 Autumn and Winter New Fashion Slim Mink Coat Women Dress</h5>
+              <h5>Haley Accent Chair 28.75''W x 31.875''D x 33.25''H</h5>
             <div class="button"> Add to Cart</div>
             </div>
           </div>
@@ -137,14 +198,14 @@ window.onclick = function(event) {
         <li><a>
           <div class="product1 product3">
             <div class="product-img">
-              <img src="Images/women3.jpg">
+              <img src="Images/home3.jpg">
             </div>
               <div class="product-price">
-              <div class="price">$5.99</div>
-              <i><strike>$9.45</strike></i>
+              <div class="price">$100.99</div>
+              <i><strike>$235.00</strike></i>
             </div>
             <div class="product-text">
-              <h5>Fashion Women Sunglasses Vintage Designer Sun Glasses Frame</h5>
+              <h5>Uttermost Alexandre Martinot Clock needs "AA" battery</h5>
               <div class="button"> Add to Cart</div>
             </div>
           </div>
@@ -152,14 +213,14 @@ window.onclick = function(event) {
         <li><a>
           <div class="product1 product4">
             <div class="product-img">
-              <img src="Images/women4.jpg">
+              <img src="Images/home4.jpg">
             </div>
               <div class="product-price">
-              <div class="price">$9.99</div>
-              <i><strike>$15.45</strike></i>
+              <div class="price">$504.00</div>
+              <i><strike>849.30</strike></i>
             </div>
             <div class="product-text">
-              <h5>10 Pair Women Socks Short Fashion No Show Low Cut Socks</h5>
+              <h5>Hawthorne Full Button Bed, 56''W x 78''D x 51''H</h5>
               <div class="button"> Add to Cart</div>
             </div>
           </div>
@@ -167,14 +228,14 @@ window.onclick = function(event) {
         <li><a>
           <div class="product1 product5">
             <div class="product-img">
-              <img src="Images/women5.jpg">
+              <img src="Images/home5.jpg">
             </div>
               <div class="product-price">
-              <div class="price">$30.43</div>
-              <i><strike>$50.45</strike></i>
+              <div class="price">$143.40</div>
+              <i><strike>$172.00</strike></i>
             </div>
             <div class="product-text">
-              <h5>Elegant Trench Coat For Women Spring Casual Collar Overcoats</h5>
+              <h5>Lenox Simply Fine Chirp Collection Bone China</h5>
               <div class="button"> Add to Cart</div>
             </div>
           </div>
@@ -182,14 +243,14 @@ window.onclick = function(event) {
         <li><a>
           <div class="product1 product6">
             <div class="product-img">
-              <img src="Images/women6.jpg">
+              <img src="Images/home6.jpg">
             </div>
               <div class="product-price">
-              <div class="price">$30.99</div>
-              <i><strike>$45.45</strike></i>
+              <div class="price">$1,700</div>
+              <i><strike>$1899.00</strike></i>
             </div>
             <div class="product-text">
-              <h5>Summer Mulberry Long Spring Silk Scarf Blush Pink Printed Shawl</h5>
+              <h5>Home Office, (Desk, Cabinet, Desk Chair &amp; Bookcase)</h5>
               <div class="button"> Add to Cart</div>
             </div>
           </div>
@@ -197,14 +258,14 @@ window.onclick = function(event) {
         <li><a>
           <div class="product1 product7">
             <div class="product-img">
-              <img src="Images/women7.jpg">
+              <img src="Images/home7.jpg">
             </div>
               <div class="product-price">
-              <div class="price">$29.99</div>
-              <i><strike>$45.99</strike></i>
+              <div class="price">$50.50</div>
+              <i><strike>$58.00</strike></i>
             </div>
             <div class="product-text">
-              <h5>Women Pumps Pointed Toe High Heel 2018 Fashion Red Shoes</h5>
+              <h5>Elrene Mia 52" X 84" Blackout Panel</h5>
               <div class="button"> Add to Cart</div>
             </div>
           </div>
@@ -212,14 +273,14 @@ window.onclick = function(event) {
         <li><a>
           <div class="product1 product8">
             <div class="product-img">
-              <img src="Images/women8.jpg">
+              <img src="Images/home8.jpg">
             </div>
               <div class="product-price">
-              <div class="price">$65.60</div>
-              <i><strike>$80.45</strike></i>
+              <div class="price">$9.09</div>
+              <i><strike>$14.99</strike></i>
             </div>
             <div class="product-text">
-              <h5>New Women Shoulder Bags Leather Handbags Fashion Purse Six-Piece Set</h5>
+              <h5>The Cellar Glassware Basics 12-Pc. Red Wine Set</h5>
               <div class="button"> Add to Cart</div>
             </div>
           </div>
@@ -228,7 +289,7 @@ window.onclick = function(event) {
       </div>
 </ul>
   </section>
-    <footer>
+      <footer>
              <div class="afooter">
                 <a href="help-center.html">Help Center</a>
                 <a href="about-us.html">About Us</a>
