@@ -1,7 +1,7 @@
 {
-  "name": "electron-quick-start",
+  "name": "value_goods",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A shopping software for a B2C",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
